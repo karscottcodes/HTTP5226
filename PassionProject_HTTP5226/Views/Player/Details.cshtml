@@ -1,0 +1,14 @@
+﻿@model PassionProject_HTTP5226.Models.PlayerDto
+
+@{
+    ViewBag.Title = "View";
+}
+
+<h1>Player Details</h1>
+
+<h2><a href="#">@Model.PlayerName</a></h2>
+<div>Team Name: @Model.TeamName</div>
+<div>Player DOB: @Model.PlayerDob</div>
+<div>Player Join: @Model.PlayerJoin</div>
+
+<a href="/Player/List">Go Back to List</a>

@@ -1,0 +1,17 @@
+﻿/* Add Player
+{
+    "PlayerName": "AddPlyrU33p ByJSo33n2",
+    "PlayerDob": "05/25/1990",
+    "PlayerJoin": "01/06/2020",
+    "TeamId": 4
+}
+*/
+
+/*Update Player*/
+{
+    "PlayerId": 8,
+    "PlayerName": "UpdatedName ByJSo33n2",
+    "PlayerDob": "05/25/1980",
+    "PlayerJoin": "01/06/2019",
+    "TeamId": 4
+}
