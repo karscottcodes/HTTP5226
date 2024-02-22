@@ -1,0 +1,45 @@
+﻿﻿@model PP_HTTP5226.Models.ViewModels.UpdateTeam
+
+@{
+    ViewBag.Title = "Edit";
+}
+
+<h2>Update Team</h2>
+<form action="/Team/Update/@Model.SelectedTeam.TeamId" method="POST">
+    <input type="hidden" name="TeamId" value="@Model.SelectedTeam.TeamId" />
+    <div>
+        <label>Team Name:</label>
+        <input type="text" name="TeamName" value="@Model.SelectedTeam.TeamName" />
+    </div>
+    <div>
+        <label>Players</label>
+        <select name="PlayerId" id="PlayerId">
+            <option value="null">---</option>
+            @foreach (var choice in Model.PlayerChoice)
+            {
+                string selected = "";
+                if (choice.PlayerName == Model.SelectedTeam.TeamName)
+                {
+                    selected = "selected";
+                }
+                <option value="@choice.PlayerId" @selected>@choice.PlayerName</option>
+            }
+        </select>
+    </div>
+    @*<div>
+        <label>Results</label>
+        <select name="ResultId" id="ResultId">
+            <option value="null">---</option>
+            @foreach (var choice in Model.ResultChoice)
+            {
+                string selected = "";
+                if (choice.Team1Name == Model.SelectedTeam.TeamName || choice.Team2Name == Model.SelectedTeam.TeamName)
+                {
+                    selected = "selected";
+                }
+                <option value="@choice.ResultId" @selected>@choice.ResultNote</option>
+            }
+        </select>
+    </div>*@
+    <input type="submit" value="Update Team" />
+</form>

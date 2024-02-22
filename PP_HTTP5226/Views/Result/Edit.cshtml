@@ -1,0 +1,32 @@
+﻿﻿@model PP_HTTP5226.Models.ViewModels.UpdateResult
+
+@{
+    ViewBag.Title = "Edit";
+}
+
+<h2>Update Result</h2>
+<form action="/Result/Update/@Model.SelectedResult.ResultId" method="POST">
+    <input type="hidden" name="PlayerId" value="@Model.SelectedResult.ResultId" />
+    <div>
+        <label>REsult Note:</label>
+        <input type="text" name="ResultNote" value="@Model.SelectedResult.ResultNote" />
+    </div>
+    <div>
+        <label>Team1Name:</label>
+        <input type="text" name="Team1Name" " value="@Model.SelectedResult.Team1Name" />
+    </div>
+    <div>
+        <label>Team1Score</label>
+        <input type="number" max="21" name="Team1Score" id="Team1Score" value="@Model.SelectedResult.Team1Score" />
+    </div>
+    <div>
+        <label>Team2Name:</label>
+        <input type="text" name="Team2Name" " value="@Model.SelectedResult.Team2Name" />
+    </div>
+    <div>
+        <label>Team2Score</label>
+        <input type="number" max="21" name="Team2Score" id="Team2Score" value="@Model.SelectedResult.Team2Score" />
+    </div>
+
+    <input type="submit" value="Update Result" />
+</form>

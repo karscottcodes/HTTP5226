@@ -1,0 +1,15 @@
+﻿@model PP_HTTP5226.Models.PlayerDto
+
+@{
+    ViewBag.Title = "DeleteConfirm";
+}
+
+<h2>Are you sure you want to delete this player?</h2>
+
+<h3>Player Name: @Model.PlayerName</h3>
+
+<form action="/Player/Delete/@Model.PlayerId" method="POST">
+    <input class="btn btn-danger" type="submit" value="Confirm Delete" />
+</form>
+<a href="/Player/List" class="btn btn-success">Return to List</a>
+

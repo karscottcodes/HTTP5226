@@ -1,0 +1,15 @@
+﻿@model PP_HTTP5226.Models.TeamDto
+
+@{
+    ViewBag.Title = "DeleteConfirm";
+}
+
+<h2>Are you sure you want to delete this team?</h2>
+
+<h3>Team Name: @Model.TeamName</h3>
+
+<form action="/Team/Delete/@Model.TeamId" method="POST">
+    <input class="btn btn-danger" type="submit" value="Confirm Delete" />
+</form>
+<a href="/Team/List" class="btn btn-success">Return to List</a>
+

@@ -1,0 +1,33 @@
+﻿@model PP_HTTP5226.Models.ViewModels.NewPlayer
+
+@{
+    ViewBag.Title = "Create";
+}
+
+<h2>Create A New Player</h2>
+<form action="/Player/Create" method="POST">
+    <div>
+        <label>Player Name:</label>
+        <input type="text" name="PlayerName" />
+    </div>
+    <div>
+        <label>Player Date of Birth:</label>
+        <input type="datetime-local" name="PlayerDob" />
+    </div>
+    <div>
+        <label>Team</label>
+        <select name="TeamId" id="TeamId">
+            <option value="null">---</option>
+            @if (Model != null)
+            {
+                foreach (var Team in Model.TeamChoice)
+                {
+                    <option value="@Team.TeamId">@Team.TeamName</option>
+                }
+            }
+
+        </select>
+    </div>
+    <input type="submit" value="Submit" />
+</form>
+

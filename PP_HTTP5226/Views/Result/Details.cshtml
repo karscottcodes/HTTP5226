@@ -1,0 +1,43 @@
+﻿@model PP_HTTP5226.Models.Result
+
+@{
+    ViewBag.Title = "Details";
+}
+
+<h2>Result Details</h2>
+
+<table class="table">
+    <tr>
+        <th>Result ID</th>
+        <td>@Model.ResultId</td>
+    </tr>
+    <tr>
+        <th>Result Date</th>
+        <td>@Model.ResultDate</td>
+    </tr>
+    <tr>
+        <th>Result Note</th>
+        <td>@Model.ResultNote</td>
+    </tr>
+    <tr>
+        <th>Team 1 Name</th>
+        <td>@Model.Team1.TeamName</td> <!-- Access related Team 1 entity -->
+    </tr>
+    <tr>
+        <th>Team 1 Score</th>
+        <td>@Model.Team1Score</td>
+    </tr>
+    <tr>
+        <th>Team 2 Name</th>
+        <td>@Model.Team2.TeamName</td> <!-- Access related Team 2 entity -->
+    </tr>
+    <tr>
+        <th>Team 2 Score</th>
+        <td>@Model.Team2Score</td>
+    </tr>
+</table>
+
+<p>
+    @Html.ActionLink("Edit", "Edit", new { id = Model.ResultId }) |
+    @Html.ActionLink("Delete", "DeleteConfirm", new { id = Model.ResultId })
+</p>

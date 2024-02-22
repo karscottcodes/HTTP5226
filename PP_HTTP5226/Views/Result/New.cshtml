@@ -1,0 +1,47 @@
+﻿@model PP_HTTP5226.Models.ViewModels.NewResult
+
+@{
+    ViewBag.Title = "Create";
+}
+
+<h2>Create A New Result</h2>
+<form action="/Result/Create" method="POST">
+    <div>
+        <label>Result Date:</label>
+        <input type="datetime-local" name="ResultDate" />
+    </div>
+    <div>
+        <label>Result Note:</label>
+        <input type="text" name="ResultNote" />
+    </div>
+    <div>
+        <label>Team 1</label>
+        <select name="Team1Id" id="Team1Id">
+            <option value="null">---</option>
+            @foreach (var Team in Model.TeamChoice)
+            {
+                <option value="@Team.TeamId">@Team.TeamName</option>
+            }
+        </select>
+    </div>
+    <div>
+        <label>Team 1 Score</label>
+        <input type="number" max="21" name="Team1Score" id="Team1Score" />
+    </div>
+    <div>
+        <label>Team 2</label>
+        <select name="Team2Id" id="Team2Id">
+            <option value="null">---</option>
+            @foreach (var Team in Model.TeamChoice)
+            {
+                <option value="@Team.TeamId">@Team.TeamName</option>
+            }
+        </select>
+    </div>
+    <div>
+        <label>Team 2 Score</label>
+        <input type="number" max="21" name="Team2Score" id="Team2Score" />
+    </div>
+    <input type="submit" value="Submit" />
+</form>
+

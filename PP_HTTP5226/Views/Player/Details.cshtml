@@ -1,0 +1,14 @@
+﻿@model PP_HTTP5226.Models.ViewModels.DetailsPlayer
+
+@{
+    ViewBag.Title = "View";
+}
+
+<h1>Player Details</h1>
+
+<h2><a href="#">@Model.SelectedPlayer.PlayerName</a></h2>
+<p>@Model.SelectedPlayer.PlayerDob</p>
+<p>@Model.SelectedPlayer.PlayerJoin</p>
+Team Id: @Model.SelectedPlayer.TeamId<br />
+
+<a href="/Player/List">Go Back to List</a>

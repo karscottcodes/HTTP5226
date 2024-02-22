@@ -1,0 +1,49 @@
+﻿@model PP_HTTP5226.Models.ViewModels.DetailsTeam
+
+@{
+    ViewBag.Title = "View";
+}
+
+<h1>Team Details</h1>
+
+<h2>@Model.SelectedTeam.TeamName</h2>
+<br />
+<a href="../Edit/@Model.SelectedTeam.TeamId">Edit Team</a>
+<br />
+<a href="../DeleteConfirm/@Model.SelectedTeam.TeamId">Delete Team</a>
+<br />
+
+<div>
+    @if (Model.RelatedPlayers != null)
+    {
+        <h3>Players Related To Team</h3>
+        foreach (var Player in Model.RelatedPlayers)
+        {
+            <a href="/Player/Details/@Player.PlayerId">@Player.PlayerName</a> <a style="color:#ab2020;" href="/Player/Unassociate/@Player.PlayerId/@Model.SelectedTeam.TeamId">[x]</a><br />
+        }
+    }
+    else
+    {
+        <p>No players found.</p>
+    }
+    <div>
+        <h4>Add new PLAYER to @Model.SelectedTeam.TeamName</h4>
+        <form method="POST" action="/Player/Associate">
+            <select name="PlayerId">
+                @foreach (var Player in Model.AvailablePlayers)
+                {
+                    <option value="@Player.PlayerId">@Player.PlayerName</option>
+                }
+
+            </select>
+            <input type="hidden" name="TeamId" value="@Model.SelectedTeam.TeamId">
+            <input type="submit" value="Assign Player" />
+        </form>
+    </div>
+
+
+
+
+</div>
+
+<a href="/Team/List">Go Back to List</a>

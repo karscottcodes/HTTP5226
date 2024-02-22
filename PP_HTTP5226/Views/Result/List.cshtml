@@ -1,0 +1,31 @@
+﻿@model IEnumerable<PP_HTTP5226.Models.ResultDto>
+
+@{
+    ViewBag.Title = "List";
+}
+
+<h1>Result History</h1>
+<a class="btn btn-success" href="/Result/New/">+ Add New Result</a>
+<table class="table">
+    <tr>
+        <th>Result Date</th>
+        <th>Result Note</th>
+        <th>Team1Name</th>
+        <th>Team1Score</th>
+        <th>Team2Name</th>
+        <th>Team2Score</th>
+    </tr>
+
+    @foreach (var Result in Model)
+    {
+        <tr>
+            <td><a href="/Result/Details/@Result.ResultId">@Result.ResultDate</a></td>
+            <td>@Result.ResultNote</td>
+            <td>@Result.Team1Name</td>
+            <td>@Result.Team1Score</td>
+            <td>@Result.Team2Name</td>
+            <td>@Result.Team2Score</td>
+        </tr>
+    }
+
+</table>
