@@ -45,11 +45,11 @@ namespace PP_HTTP5226.Controllers
         }
 
         /// <summary>
-        /// Provides all PLAYER information
+        /// Provides all PLAYER information, associated with a player id
         /// </summary>
         /// <returns>
         /// HEADER: 200 (OK)
-        /// CONTENT: all PLAYER information in the database
+        /// CONTENT: all PLAYER information in the database, associated with a Player Id
         /// <param = "PlayerId">PlayerId</param>
         /// <example>
         /// GET: api/PlayerData/FindPlayer/5
@@ -87,7 +87,7 @@ namespace PP_HTTP5226.Controllers
         /// CONTENT: updates PLAYER information in the database based on playerid
         /// <param = "PlayerId">PlayerId</param>
         /// <example>
-        /// GET: api/PlayerData/UpdatePlayer/5
+        /// POST: api/PlayerData/UpdatePlayer/5
         /// </example>
         [ResponseType(typeof(void))]
         [HttpPost]
@@ -142,6 +142,7 @@ namespace PP_HTTP5226.Controllers
         }
 
         // POST: api/PlayerData/DeletePlayer/5
+        // deletes a player based on player id
         [ResponseType(typeof(Player))]
         [HttpPost]
         public IHttpActionResult DeletePlayer(int id)
