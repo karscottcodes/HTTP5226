@@ -17,7 +17,15 @@ namespace PassionProject_HTTP5226.Controllers
     {
         private ApplicationDbContext db = new ApplicationDbContext();
 
-        // GET: api/ResultData/ListResults
+               /// <summary>
+        /// Provides all RESULT information
+        /// </summary>
+        /// <returns>
+        /// HEADER: 200 (OK)
+        /// CONTENT: all result information in the database
+        /// <example>
+        /// GET: api/ResultData/ListResults
+        /// </example>
         [HttpGet]
         public IEnumerable<ResultDto> ListResults()
         {
@@ -42,7 +50,16 @@ namespace PassionProject_HTTP5226.Controllers
             return ResultDtos;
         } 
 
-        // GET: api/ResultData/ListResult/5
+               /// <summary>
+        /// Provides all result information, associated with a result ID
+        /// </summary>
+        /// <returns>
+        /// HEADER: 200 (OK)
+        /// CONTENT: all result information in the database, associated with a result Id
+        /// <param = "resultId">resultId</param>
+        /// <example>
+        /// GET: api/resultData/Findresult/5
+        /// </example>
         [ResponseType(typeof(Result))]
         [HttpGet]
         public IHttpActionResult FindResult(int id)
@@ -63,7 +80,16 @@ namespace PassionProject_HTTP5226.Controllers
             return Ok(ResultDto);
         }
 
-        // POST: api/ResultData/UpdateResult/5
+           /// <summary>
+        /// Updates result information based on resultid
+        /// </summary>
+        /// <returns>
+        /// HEADER: 200 (OK)
+        /// CONTENT: updates result information in the database based on resultid
+        /// <param = "resultId">resultId</param>
+        /// <example>
+        /// POST: api/resultData/Updateresult/5
+        /// </example>
         [ResponseType(typeof(void))]
         [HttpPost]
         public IHttpActionResult UpdateResult(int id, Result result)
@@ -100,6 +126,7 @@ namespace PassionProject_HTTP5226.Controllers
         }
 
         // POST: api/ResultData/AddResult
+        // adds result based on form data
         [ResponseType(typeof(Result))]
         [HttpPost]
         public IHttpActionResult AddResult(Result result)
@@ -115,7 +142,8 @@ namespace PassionProject_HTTP5226.Controllers
             return CreatedAtRoute("DefaultApi", new { id = result.ResultId }, result);
         }
 
-        // POST: api/ResultData/DeletePlayer/5
+        // POST: api/ResultData/DeleteResult/5
+        // delets result based on result id
         [ResponseType(typeof(Result))]
         [HttpPost]
         public IHttpActionResult DeleteResult(int id)
