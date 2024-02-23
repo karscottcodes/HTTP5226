@@ -16,7 +16,15 @@ namespace PP_HTTP5226.Controllers
     {
         private ApplicationDbContext db = new ApplicationDbContext();
 
-        // GET: api/TeamData/ListTeams
+        /// <summary>
+        /// Provides all TEAM information
+        /// </summary>
+        /// <returns>
+        /// HEADER: 200 (OK)
+        /// CONTENT: all TEAM information in the database
+        /// <example>
+        /// GET: api/TeamData/ListTeams
+        /// </example>
         [HttpGet]
         public IEnumerable<TeamDto> ListTeams()
         {
@@ -32,7 +40,16 @@ namespace PP_HTTP5226.Controllers
             return TeamDtos;
         }
 
-        // GET: api/TeamData/FindTeam/5
+        /// <summary>
+        /// Provides all TEAM information, associated with a Team ID
+        /// </summary>
+        /// <returns>
+        /// HEADER: 200 (OK)
+        /// CONTENT: all TEAM information in the database, associated with a Team Id
+        /// <param = "TeamId">TeamId</param>
+        /// <example>
+        /// GET: api/TeamData/FindTeam/5
+        /// </example>
         [ResponseType(typeof(Team))]
         [HttpGet]
         public IHttpActionResult FindTeam(int id)
@@ -51,7 +68,16 @@ namespace PP_HTTP5226.Controllers
             return Ok(TeamDto);
         }
 
-        // POST: api/TeamData/UpdateTeam/5
+        /// <summary>
+        /// Updates TEAM information based on TEAMid
+        /// </summary>
+        /// <returns>
+        /// HEADER: 200 (OK)
+        /// CONTENT: updates TEAM information in the database based on teamid
+        /// <param = "teamId">TeamId</param>
+        /// <example>
+        /// POST: api/TeamData/UpdateTeam/5
+        /// </example>
         [ResponseType(typeof(void))]
         [HttpPost]
         public IHttpActionResult UpdateTeam(int id, Team team)
@@ -117,6 +143,7 @@ namespace PP_HTTP5226.Controllers
         }
 
         // POST: api/TeamData/AddTeam
+        // Adds new team to db based on form data
         [ResponseType(typeof(Team))]
         [HttpPost]
         public IHttpActionResult AddTeam(Team team)
@@ -133,6 +160,7 @@ namespace PP_HTTP5226.Controllers
         }
 
         // POST: api/TeamData/DeleteTeam/5
+        // Delete team based on team id
         [ResponseType(typeof(Team))]
         [HttpPost]
         public IHttpActionResult DeleteTeam(int id)
